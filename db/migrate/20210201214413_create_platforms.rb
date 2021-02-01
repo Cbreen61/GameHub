@@ -1,6 +1,6 @@
-class CreatePlaforms < ActiveRecord::Migration[6.1]
+class CreatePlatforms < ActiveRecord::Migration[6.1]
   def change
-    create_table :plaforms do |t|
+    create_table :platforms do |t|
       t.string :name
       t.string :manufacturer
       t.string :image

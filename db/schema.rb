@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_215704) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "plaforms", force: :cascade do |t|
+  create_table "platforms", force: :cascade do |t|
     t.string "name"
     t.string "manufacturer"
     t.string "image"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_215704) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "platforms_gaames", force: :cascade do |t|
+  create_table "platforms_games", force: :cascade do |t|
     t.integer "platform_id"
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
