@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration[6.1]
     create_table :games do |t|
       t.string :title
       t.date :release_date
-      t.string :description, :limit => 100
+      t.string :audience_rating
       t.string :image
 
       t.timestamps

@@ -1,0 +1,23 @@
+<% if @game.errors.any? %>
+  <%= render partial: '/errors', locals: {instance: @game}%>
+<% end %>
+
+<%= form_for @game do |f| %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :release_date %>
+        <%= f.date_field :release_date %>
+    </div>
+    <div>
+        <%= f.label :audience_rating %>
+        <%= f.text_field :audience_rating %>
+    </div>
+    <div>
+        <%= f.label :image %>
+        <%= f.text_field :image %>
+    </div>
+    <%= f.submit "Add Game" %>
+<% end %>

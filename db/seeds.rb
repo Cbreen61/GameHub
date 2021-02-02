@@ -14,5 +14,5 @@ resp = RestClient.get(url)
 data = JSON.parse(resp.body)
 
 data["results"].each do |game|
-    Game.create(title: game["name"], release_date: game["released"], description: game["esrb_rating"], image: game["background_image"])
+    Game.create(title: game["name"], release_date: game["released"], audience_rating: game["esrb_rating"]["name"], image: game["background_image"])
 end

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_215704) do
   create_table "games", force: :cascade do |t|
     t.string "title"
     t.date "release_date"
-    t.string "description", limit: 100
+    t.string "audience_rating"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

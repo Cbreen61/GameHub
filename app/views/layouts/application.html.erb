@@ -15,9 +15,17 @@
       <ul>
         <li><%= link_to("Home", root_path)%></li>
         <li><%= link_to("Games", games_path)%></li>
+        <li><%= link_to("Add Game", new_game_path)%></li>
         <li><%= link_to("Signup", new_user_path)%></li>
       </ul>
     </nav>
+    <% if flash[:error] %>
+      <% flash[:error].each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+
+    <%= content_tag("p", flash[:notice]) if flash[:notice] %>
     <%= yield %>
   </body>
 </html>
