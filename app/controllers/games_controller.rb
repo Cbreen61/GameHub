@@ -20,6 +20,18 @@ class GamesController < ApplicationController
     end
 
     def edit
+
+    end
+    
+    def update
+        @game = Game.new(game_params)
+        if @game.save 
+            redirect_to game_path(@game)
+        else
+            flash.now[:error] = @game.errors.full_messages
+            render :edit
+        end
+        
     end
 
 
