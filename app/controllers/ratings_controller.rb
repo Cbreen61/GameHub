@@ -22,14 +22,17 @@ class RatingsController < ApplicationController
     end
 
     def edit 
-
+        @rating = Rating.find(params[:id])
+        @game = Game.find)params[:game_id]
     end
 
     def update
+        @rating = Rating.find(params[:id])
+        @rating.update(rating_params)
+        redirect_to game_path(@rating.game_id)
     end
 
     def destroy 
-
     end
 
     private 
