@@ -1,13 +1,16 @@
 class GamesController < ApplicationController
-    before_action :find_game, only:[:show, :edit, :update, :destroy]
+    before_action :find_game, only: [:show, :edit, :update, :destroy]
     def index
         @games = Game.all
     end
+
     def show
     end
+
     def new
         @game = Game.new
     end
+
     def create
     params
         @game = Game.new(game_params)
@@ -33,6 +36,13 @@ class GamesController < ApplicationController
         end
         
     end
+
+    def destroy
+        @game.destroy
+        flash[:notice] = "#{@game.title} was deleted."
+        redirect_to games_path
+    end
+
 
 
     private
