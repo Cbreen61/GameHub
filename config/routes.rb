@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :ratings
   end
 
-  resources :platforms, only [:show,:create]
+  resources :platforms
   resources :users, only: [:new,:create]
+  resources :sessions, only: [:new,:create,:destroy]
+
 end
