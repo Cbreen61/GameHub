@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :platforms
   resources :users, only: [:new,:create]
-  resources :sessions, only: [:new,:create,:destroy]
-
+  
+  get "/logout", to: "sessions#logout", as: "logout"
+  get "/signup", to: "sessions#signup", as: "signup"
+  post "/signup", to: "sessions#create"
 end
