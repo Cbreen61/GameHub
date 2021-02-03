@@ -23,7 +23,7 @@ class RatingsController < ApplicationController
 
     def edit 
         @rating = Rating.find(params[:id])
-        @game = Game.find)params[:game_id]
+        @game = Game.find(params[:game_id])
     end
 
     def update
