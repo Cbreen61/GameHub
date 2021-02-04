@@ -4,13 +4,18 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
-        if @user.save
-            redirect_to platforms_path
-        else
+        @user = User.find_by(username:params[:username])
+          if !@user
+            @error = "I'm sorry, that username is incorrect"
             render :new
-        end
-    end
+          elsif !user.authenticate(params[:password])
+            @error =  "Password was Incorrect"
+            render :new  
+          else 
+            session[:user_id] = @user.id
+            redirect_to movies_path 
+        end 
+    end 
 
     private
 
