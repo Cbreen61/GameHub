@@ -9,7 +9,7 @@ class RatingsController < ApplicationController
 
     def new 
         @game = Game.find(params[:game_id])
-        @rating = Rating.build
+        @rating = @game.ratings.build
     end
 
     def create
@@ -37,7 +37,7 @@ class RatingsController < ApplicationController
 
     private 
     def rating_params
-        params.require(:rating).permit(:comment, :stars, :user_id, :game_id)
+        params.require(:rating).permit(:comment, :stars)
     end
 
 end

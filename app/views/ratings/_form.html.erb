@@ -1,0 +1,17 @@
+<%= form_for @rating, url:game_rating_path(@game) do |f| %>
+  <div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div>
+    <%= f.hidden_field :game_id, :value => game.id %>
+  </div>
+  <div>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <div>
+    <%= f.label :stars %>
+    <%= f.text_area :stars,limit: 5 %>
+  </div>
+  <%= f.submit %>
+<% end %>
