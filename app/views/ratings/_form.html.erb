@@ -1,4 +1,4 @@
-<%= form_for @rating, url:game_rating_path(@game) do |f| %>
+<%= form_for rating, url:url do |f| %>
   <div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
