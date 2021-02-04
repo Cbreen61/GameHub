@@ -5,4 +5,5 @@
 <li>Release date:<%= @game.release_date %></li>
 <p><%= link_to "Edit", edit_game_path(@game) %></p>
 
+<%= link_to "Rate Game",new_game_rating_path(@game)%>
 <%= link_to "Delete",game_path(@game), method: "delete" %>
