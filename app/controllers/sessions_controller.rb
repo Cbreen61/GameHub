@@ -5,15 +5,15 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
-    def create
+    def create 
         @user = User.new(user_params)
-        if @user.save
+        if @user.save 
             session[:user_id] = @user.id
             redirect_to platforms_path
-        else
+        else 
             @error = @user.errors.full_messages
             render :signup
-        end
+        end 
     end
 
     def logout
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username,:password)
     end
 
 end

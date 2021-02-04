@@ -8,12 +8,12 @@ class UsersController < ApplicationController
           if !@user
             @error = "I'm sorry, that username is incorrect"
             render :new
-          elsif !user.authenticate(params[:password])
+          elsif !@user.authenticate(params[:password])
             @error =  "Password was Incorrect"
             render :new  
           else 
             session[:user_id] = @user.id
-            redirect_to movies_path 
+            redirect_to platforms_path 
         end 
     end 
 
