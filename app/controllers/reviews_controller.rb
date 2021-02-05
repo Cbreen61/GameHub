@@ -35,7 +35,12 @@ class ReviewsController < ApplicationController
     redirect_to game_path(@review.game_id)
   end
 
-  def destory
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    flash[:notice] = "Review was deleted."
+        redirect_to game_path(@review.game_id)
+
   end 
 
   private 
