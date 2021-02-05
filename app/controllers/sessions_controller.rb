@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
         end
         if @user && @user.id
             session[:user_id] = @user.id
-            redirect_to platforms_path
+            redirect_to games_path
         else
             redirect_to new_user_path
         end
