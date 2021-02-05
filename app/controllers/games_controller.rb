@@ -27,8 +27,7 @@ class GamesController < ApplicationController
     end
     
     def update
-        @game = Game.new(game_params)
-        if @game.save 
+        if @game.update(game_params)
             redirect_to game_path(@game)
         else
             flash.now[:error] = @game.errors.full_messages

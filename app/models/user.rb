@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     has_many :platforms
-    has_many :rating
+    has_many :reviews
+    has_many :games, through: :reviews
     has_many :games, through: :plaforms
-    has_many :games, through: :rating
+ 
 end

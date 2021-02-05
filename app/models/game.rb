@@ -1,6 +1,5 @@
 class Game < ApplicationRecord
-    has_and_belongs_to_many :platforms
-    has_many :ratings
-    has_many :users,  through: :rating
+    has_many :reviews
+    has_many :users,  through: :reviews
     validates :title, presence: true, uniqueness: true
 end

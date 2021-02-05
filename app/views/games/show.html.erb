@@ -5,5 +5,10 @@
 <li>Release date:<%= @game.release_date %></li>
 <p><%= link_to "Edit", edit_game_path(@game) %></p>
 
-<%= link_to "Rate Game",new_game_rating_path(@game)%>
+<%= link_to "Rate Game",new_game_review_path(@game)%>
 <%= link_to "Delete",game_path(@game), method: "delete" %>
+<%@game.reviews.each do |r| %>
+<h2> Here are your reviews </h2>
+    <h4><%=r.comment%> - <%=r.user.username%> </h4>
+    <%= link_to "Edit a Rating", edit_game_review_path(@game.id,r.id)%>
+<% end %>

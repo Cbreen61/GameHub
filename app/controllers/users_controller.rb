@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #skip_before_action :verified_user, only: [:new, :create]
     def new
         @user = User.new
     end
@@ -13,14 +14,14 @@ class UsersController < ApplicationController
             render :new  
           else 
             session[:user_id] = @user.id
-            redirect_to platforms_path 
+            redirect_to games_path 
         end 
     end 
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:username,:password)
     end
     
 end

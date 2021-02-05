@@ -1,4 +1,4 @@
-<%= form_for rating, url:url do |f| %>
+<%= form_for review, url:url do |f| %>
   <div>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
@@ -9,9 +9,6 @@
     <%= f.label :comment %>
     <%= f.text_area :comment %>
   </div>
-  <div>
-    <%= f.label :stars %>
-    <%= f.text_area :stars,limit: 5 %>
-  </div>
   <%= f.submit %>
 <% end %>
+

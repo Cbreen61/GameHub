@@ -13,6 +13,6 @@ url = "https://api.rawg.io/api/games"
 resp = RestClient.get(url)
 data = JSON.parse(resp.body)
 
-data["results"].each do |game|
-    Game.create(title: game["name"], release_date: game["released"], audience_rating: game["esrb_rating"]["name"], image: game["background_image"])
+data["results"].each do |g|
+    Game.create(title: g["name"], release_date: g["released"], audience_rating: g["esrb_rating"]["name"], image: g["background_image"])
 end
