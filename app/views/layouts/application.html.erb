@@ -13,13 +13,16 @@
   <body>
     <nav>
       <ul>
+      <% if logged_in? %>
         <li><%= link_to("Home", root_path)%></li>
         <li><%= link_to("Games", games_path)%></li>
         <li><%= link_to("Add Game", new_game_path)%></li>
+        <li><%= link_to("Logout", logout_path)%></li>
+        <% else %>
         <li><%= link_to("Signup", signup_path)%></li>
         <li><%= link_to("Login", new_user_path)%></li>
-        <li><%= link_to("Logout", logout_path)%></li>
         <li><%= link_to "Login with Google", '/auth/google_oauth2', method: :post %></li>
+        <% end %>
       </ul>
     </nav>
     

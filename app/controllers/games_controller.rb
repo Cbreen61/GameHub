@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
     before_action :find_game, only: [:show, :edit, :update, :destroy]
+    before_action :require_login, except: [:index, :show]
     def index
         @games = Game.all.ordered_by_title
     end
