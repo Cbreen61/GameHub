@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
     end
     def game_not_found
         redirect_to games_path
-      end
+    end
+    def platform_not_found
+        redirect_to platforms_path
+    end
  
 end

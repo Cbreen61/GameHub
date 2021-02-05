@@ -1,0 +1,22 @@
+<% if @platform.errors.any? %>
+  <div><%= render partial: '/errors', locals: {instance: @platform}%></div>
+<% end %>
+
+<%= form_for @platform do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label :manufacturer %>
+        <%= f.text_field :manufacturer %>
+    </div>
+    <div>
+        <%= f.label :image %>
+        <%= f.text_field :image %>
+    </div>
+  <div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+    <%= f.submit "Add Platform" %>
+<% end %>

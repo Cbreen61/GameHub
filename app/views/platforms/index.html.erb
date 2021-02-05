@@ -1,1 +1,7 @@
-<h1>Your Gaming Platorms</h1>
+<h1>Your Gaming Platforms</h1>
+
+<ul>
+    <% @platforms.each do |p|%>
+        <li><%= link_to p.name, platform_path(p)%>
+    <%end%>
+</ul>
