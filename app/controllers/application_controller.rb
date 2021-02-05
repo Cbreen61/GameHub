@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method  :current_user, :logged_in?, :require_login
+    helper_method  :current_user, :logged_in?, :require_login, :not_found
     private 
 
     def logged_in?
@@ -14,5 +14,8 @@ class ApplicationController < ActionController::Base
             redirect_to new_user_path
         end
     end
+    def game_not_found
+        redirect_to games_path
+      end
  
 end

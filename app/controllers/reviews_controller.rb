@@ -27,6 +27,12 @@ class ReviewsController < ApplicationController
   def edit
     @review = Review.find(params[:id])
     @game = Game.find(params[:game_id])
+    if user_review
+
+    else
+      flash[:notice] = "You can only edit your reviews"
+      redirect_to game_path(@review.game_id)
+    end
   end
 
   def update
@@ -37,9 +43,14 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
-    flash[:notice] = "Review was deleted."
+    if user_review
+      @review.destroy
+      flash[:notice] = "Review was deleted."
         redirect_to game_path(@review.game_id)
+    else
+      flash[:notice] = "You can not delete this review."
+      redirect_to game_path(@review.game_id)
+    end
 
   end 
 
@@ -47,4 +58,8 @@ class ReviewsController < ApplicationController
    def review_params
     params.require(:review).permit(:comment,:user_id,:game_id)
    end 
+
+   def user_review
+    @review.user_id == current_user
+   end
 end
