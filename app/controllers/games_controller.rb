@@ -30,12 +30,6 @@ class GamesController < ApplicationController
     end
 
     def edit   
-        if game_user
-
-        else
-            flash[:notice] = "You can only edit games you add."
-            redirect_to game_path(@game)
-        end
 
     end
     
@@ -50,14 +44,9 @@ class GamesController < ApplicationController
     end
 
     def destroy
-        if game_user
             @game.destroy
             flash[:notice] = "#{@game.title} was deleted."
             redirect_to games_path
-        else
-            flash[:notice] = "Only users that create games can delete them"
-            redirect_to game_path(@game)
-        end
     end
 
 
@@ -70,7 +59,5 @@ class GamesController < ApplicationController
         def game_params
             params.require(:game).permit(:title, :release_date, :audience_rating, :image)
         end
-        def game_user
-            @game.user_ids == current_user
-        end
+
 end

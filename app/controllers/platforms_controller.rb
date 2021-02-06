@@ -1,22 +1,23 @@
 class PlatformsController < ApplicationController
     before_action :require_login
     before_action :find_platform, only: [:show, :edit, :update, :destroy]
+    
 
 
     def index
-        @platforms = current_user.platforms.all
+        @platforms = @current_user.platforms.all
     end
     def show
         if @platform = Platform.find_by_id(params[:id])
             render :show
         else
-           game_not_found
+           redirect_to platforms_path
         end
     end
 
     def new
         @user = User.find_by(params[:user_id])
-        @platform = Platform.new
+        @platform = @user.platforms.new
 
     end
 
@@ -55,7 +56,6 @@ class PlatformsController < ApplicationController
     def destroy
 
         if platform_user
-            
             @platform.destroy
             flash[:notice] = "#{@platform.name} was deleted."
             redirect_to platforms_path
@@ -77,7 +77,11 @@ class PlatformsController < ApplicationController
         params.require(:platform).permit(:name, :manufacturer, :user_id, :image)
     end
     def platform_user
-        Platform.find_by(params[:user_id]) == current_user
+        if @platform.user == current_user
+            
+        end
+        
     end
+
 end
 

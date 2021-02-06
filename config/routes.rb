@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root(to: "static#home")
 
   resources :games do 
-    resources :reviews
+    resources :reviews, except: [:show]
   end
 
   resources :platforms do
