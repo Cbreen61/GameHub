@@ -32,7 +32,5 @@ class OwnedGamesController < ApplicationController
    def collection_array
     @games = Game.all
     @platforms = Platform.all
-end
-
-
+   end
 end

@@ -2,8 +2,9 @@ class PlatformsController < ApplicationController
     before_action :require_login
     before_action :find_platform, only: [:show, :edit, :update, :destroy]
 
+
     def index
-        @platform = current_user.platforms.all
+        @platforms = current_user.platforms.all
     end
     def show
         if @platform = Platform.find_by_id(params[:id])
@@ -52,7 +53,9 @@ class PlatformsController < ApplicationController
     end
 
     def destroy
+
         if platform_user
+            
             @platform.destroy
             flash[:notice] = "#{@platform.name} was deleted."
             redirect_to platforms_path
