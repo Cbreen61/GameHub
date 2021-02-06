@@ -1,0 +1,6 @@
+<%= form_for owned_game, url:url do |f| %>
+
+    <%= f.collection_select :game_id, @games, :id, :title %>
+    <%= f.hidden_field :platform_id, :vaule => platform.id %>
+    <%= f.submit %>
+<% end %>

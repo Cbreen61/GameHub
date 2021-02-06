@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_215704) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "games_platforms", force: :cascade do |t|
+  create_table "owned_games", force: :cascade do |t|
     t.integer "platform_id"
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false

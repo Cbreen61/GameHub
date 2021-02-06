@@ -16,6 +16,7 @@
       <% if logged_in? %>
         <li><%= link_to("Home", root_path)%></li>
         <li><%= link_to("Games", games_path)%></li>
+        <li><%= link_to("Platforms", platforms_path)%></li>
         <li><%= link_to("Add Game", new_game_path)%></li>
         <li><%= link_to("Logout", logout_path)%></li>
         <% else %>

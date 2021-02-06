@@ -1,6 +1,6 @@
-class CreateGamesPlatforms < ActiveRecord::Migration[6.1]
+class CreateOwnedGames < ActiveRecord::Migration[6.1]
   def change
-    create_table :games_platforms do |t|
+    create_table :owned_games do |t|
       t.integer :platform_id
       t.integer :game_id
 

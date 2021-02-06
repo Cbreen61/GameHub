@@ -20,5 +20,6 @@ class ApplicationController < ActionController::Base
     def platform_not_found
         redirect_to platforms_path
     end
+
  
 end

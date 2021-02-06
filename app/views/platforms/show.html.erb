@@ -1,9 +1,15 @@
+<%if logged_in? %>
 <h1><%= @platform.name %></h1>
 
 
 <img src="<%= @platform.image %>" alt ="platform" style="width:600px;height:600px;">    
-<li>Manufacturer:<%= @platform.manufacturer %></li>    
-<%if logged_in? %>
-    <li><%= link_to "Edit", edit_platform_path(@platform) %></li>
-    <li><%= link_to "Delete",platform_path(@platform), method: "delete" %></li>
+<li>Manufacturer:<%= @platform.manufacturer %></li>
+<br>  
+    <li><%= link_to "Edit Platform", edit_platform_path(@platform) %></li>
+    <li><%= link_to "Delete Platform",platform_path(@platform), method: "delete" %></li>
 <% end %>
+<h4> Games you own for this plaform</h4>
+<% @platform.games.map do  |game| %>
+     <li><%= link_to game.title, game_path(game) %> </li>
+    
+    <% end %>
