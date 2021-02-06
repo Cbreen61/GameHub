@@ -2,7 +2,7 @@ class PlatformsController < ApplicationController
     before_action :require_login
     before_action :find_platform, only: [:show, :edit, :update, :destroy]
     def index
-        @platforms = Platform.all.ordered_by_title 
+        @platform = Platform.all.ordered_by_title 
     end
 
     def show

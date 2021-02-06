@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             render :new  
           else 
             session[:user_id] = @user.id
-            redirect_to games_path 
+            redirect_to platforms_path 
         end 
     end 
 

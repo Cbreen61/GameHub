@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to games_path
+            redirect_to platforms_path
         else 
             @error = @user.errors.full_messages
             render :signup
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
         end
         if @user && @user.id
             session[:user_id] = @user.id
-            redirect_to games_path
+            redirect_to platforms_path
         else
             redirect_to new_user_path
         end

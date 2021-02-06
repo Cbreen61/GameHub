@@ -1,3 +1,3 @@
-<h1>Add games you own for your <%= @platform.name %></h1>
+<h1>Add a game you own for your <%= @platform.name %></h1>
 
 <%= render partial: 'form', locals: {owned_game: @owned, url:platform_owned_games_path(@platform), platform:@platform}%>
