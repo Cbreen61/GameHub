@@ -1,10 +1,10 @@
 class PlatformsController < ApplicationController
     before_action :require_login
     before_action :find_platform, only: [:show, :edit, :update, :destroy]
-    def index
-        @platform = Platform.all.ordered_by_title 
-    end
 
+    def index
+        @platform = current_user.platforms.all
+    end
     def show
         if @platform = Platform.find_by_id(params[:id])
             render :show
@@ -74,7 +74,7 @@ class PlatformsController < ApplicationController
         params.require(:platform).permit(:name, :manufacturer, :user_id, :image)
     end
     def platform_user
-        @platform.user_id = current_user
+        Platform.find_by(params[:user_id]) == current_user
     end
 end
 

@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :platforms do
-    resources :owned_games, only: [:new, :create, :destroy]
-  end
+    resources :platforms do
+      resources :owned_games, only: [:new, :create, :destroy]
+    end
   resources :users, only: [:new,:create]
   
   get "/logout", to: "sessions#logout", as: "logout"

@@ -1,9 +1,14 @@
 <h1>Your Gaming Platforms</h1>
-    <p><%= link_to("Add a Platform", new_platform_path)%></p>
-
+   
 <ul>
-    <% @platform.each do |p|%>
-        <li><%= link_to p.name, platform_path(p)%></li>
-    <%end%>
+   
+        <% @platform.each do |p|%>
+            <li><%= link_to p.name, platform_path(p)%></li>
+        <%end%>
+
+        <p><%= link_to("Add a Platform", new_platform_path)%></p>
+
+
+
 
 </ul>
