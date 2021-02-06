@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root(to: "static#home")
 
   resources :games do 
-    resources :reviews, except: [:show]
+    resources :reviews, except: [:show,]
   end
 
   resources :platforms do
@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   post "/signup", to: "sessions#create"
 
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]
+  match '*path', :to => 'application#routing_error', via: [:get, :post]
 end

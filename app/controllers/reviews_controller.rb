@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :require_login
   
   def index
+    redirect_to games_path
   end
 
 
