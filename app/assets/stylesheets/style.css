@@ -1,0 +1,32 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/97/fd/40/97fd40b04ea88ae05c66332c64de4fa9.png");
+    background-position: top;
+    background-color: white;       <<<Try hexadecimal, RGB, color
+    background-size: 200%;         <<< Try %, pixels(px)
+    color: white;                  <<<Try hexadecimal, RGB, word
+    text-align: center;            <<<Try left/right/center
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(6, 6, 6);
+  }
+  
+.navbar ul li {
+    float: left;
+  }
+  
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+.navbar ul li a:hover {
+    background-color: orange;
+  }
