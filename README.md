@@ -1,24 +1,11 @@
-# README
+# Gamehub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gamehub is a rails application that was built to serve as a refence and oragnize tool for gamers of the world. There is a starting database of games that is fed from RAWG API, non users can check out all the games we have and users can add and rate games to main list as well has add platforms they own and games they own under those platforms. 
 
-Things you may want to cover:
+In order to begin:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Please Run the Following
+1. `bundle`
+2. `rails db:migrate`
+3. `rails db:seed`
+4. `rails s`
