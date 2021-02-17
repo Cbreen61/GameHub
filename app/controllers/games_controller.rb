@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    before_action :find_game, only: [:show, :edit, :update, :destroy]
+    before_action :find_game, only: [:show, :edit, :update]
     before_action :require_login, except: [:index, :show]
     def index
         @games = Game.all.ordered_by_title 
@@ -43,11 +43,7 @@ class GamesController < ApplicationController
         
     end
 
-    def destroy
-            @game.destroy
-            flash[:notice] = "#{@game.title} was deleted."
-            redirect_to games_path
-    end
+
 
 
 

@@ -1,9 +1,11 @@
 class OwnedGamesController < ApplicationController
-    before_action :collection_array, only: [:new, :edit]
+    before_action :collection_array, only: [:new, :edit, :destroy]
+    before_action :find_owned, only: [:destroy]
 
     def show
         @platform = Platform.find(params[:platform_id])
         @owned = OwnedGame.find(params[:id])
+        @game = Game.find(params[:game_id])
 
     
     end
@@ -32,5 +34,10 @@ class OwnedGamesController < ApplicationController
    def collection_array
     @games = Game.all
     @platforms = Platform.all
+   end
+
+   def find_owned
+    @platform = Platform.find(params[:platform_id])
+    @owned = OwnedGame.find(params[:id])
    end
 end
