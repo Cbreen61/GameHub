@@ -8,9 +8,9 @@
     <%= link_to "Edit Platform", edit_platform_path(@platform) %>
     <%= link_to "Delete Platform",platform_path(@platform), method: "delete" %>
 <% end %>
-<%= link_to"Add Game you own", new_platform_owned_game_path(@platform)%>
+<%= link_to"Add games you own", new_platform_owned_game_path(@platform)%>
 <h4> Games you own for this plaform</h4>
 <% @platform.games.map do  |game| %>
      <li><%= link_to game.title, game_path(game) %> </li>
     
-    <% end %>
+<% end %>
