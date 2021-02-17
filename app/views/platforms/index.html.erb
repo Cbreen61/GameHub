@@ -3,7 +3,10 @@
 <ul>
    
         <% @platforms.each do |p|%>
-            <li><%= link_to p.name, platform_path(p)%></li>
+                <li><h4><%= link_to p.name, platform_path(p)%></h4></li>
+                <%p.games.each do |t| %>
+                    <ul><%= t.title %></ul>
+                <% end %>
         <%end%>
 
         <p><li><%= link_to("Add a Platform", new_platform_path)%></li></p>

@@ -1,6 +1,6 @@
 class PlatformsController < ApplicationController
     before_action :require_login
-    before_action :find_platform, only: [:show, :edit, :update, :destroy]
+    before_action :find_platform, only: [:index, :show, :edit, :update, :destroy]
     
 
 
