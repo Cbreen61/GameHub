@@ -12,13 +12,18 @@ class OwnedGamesController < ApplicationController
 
     def new
         @platform = Platform.find(params[:platform_id])
-        @owned = @platform.owned_games.build
+        @owned = @platform.owned_games.new
       
     end
 
     def create
-        @owned = OwnedGame.create(owned_params)
-        redirect_to platforms_path
+        @owned = OwnedGame.new(owned_params)
+        if @owned.save
+            redirect_to platform_path(@owned.platform_id)
+        else
+            flash.now[:error] = @owned.errors.full_messages
+            render :new
+        end
     end
 
     def destroy
