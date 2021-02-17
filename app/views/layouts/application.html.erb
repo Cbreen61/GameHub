@@ -13,7 +13,12 @@
   <body>
     <nav class="navbar">
       <ul>
-      <li>
+      <li class="search-container">
+        <form action="/search">
+          <input type="text" placeholder="Search.." name="q">
+          <button type="submit">Search</button>
+        </form>
+      </li>
         <li><%= link_to("Games", games_path)%></li>
       <% if logged_in? %>
         <li><%= link_to("Platforms", platforms_path)%></li>

@@ -1,0 +1,8 @@
+<h1> Search Results</h1>
+<% @games.each do |game|%>
+ <h1><li><%= link_to game.title, game_path(game)%><li></h1>
+ <img src="<%= game.image %>" alt ="game" style="width:600px;height:600px;">    
+ <li>Audience Rating:<%= game.audience_rating %></li>    
+ <li>Release date:<%= game.release_date %></li>
+
+<% end %>

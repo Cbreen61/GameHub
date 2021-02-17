@@ -1,8 +1,17 @@
 class GamesController < ApplicationController
     before_action :find_game, only: [:show, :edit, :update]
-    before_action :require_login, except: [:index, :show]
+    before_action :require_login, except: [:index, :show, :search]
     def index
         @games = Game.all.ordered_by_title 
+    end
+    def search
+        @games = Game.where("title LIKE ?","%" + params[:q] + "%")
+        if !@games.empty?
+        render :search
+        else
+            flash[:notice] = "Game could not be found"
+            redirect_to games_path
+        end
     end
 
     def show

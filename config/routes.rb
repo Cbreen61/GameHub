@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#logout", as: "logout"
   get "/signup", to: "sessions#signup", as: "signup"
   post "/signup", to: "sessions#create"
+  get '/search', to: "games#search"
 
   match '/auth/:google_oauth2/callback' => 'sessions#google', via: [:get,:post]
   match '*path', :to => 'application#routing_error', via: [:get, :post]

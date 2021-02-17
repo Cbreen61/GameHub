@@ -30,3 +30,24 @@ body {
 .navbar ul li a:hover {
     background-color: orange;
   }
+.search-container button {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+.search-container button:hover{
+  background-color: orange;
+}
+.search-container input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+.navbar .search-container {
+  float: right;
+}
