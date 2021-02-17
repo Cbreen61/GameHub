@@ -11,7 +11,7 @@
 <h2> Game Reviews </h2>
     <li><%= link_to "Review this game",new_game_review_path(@game)%></li>
     <%@game.reviews.each do |r| %>
-        <p><%=r.comment%> - <%=r.user.username%> </p>
+        <h4><%=r.comment%> - <%=r.user.username%> </h4>
         <li><%= link_to "Edit Review", edit_game_review_path(@game.id,r.id)%></li>
         <li><%= link_to "Delete Review",game_review_path(@game,r.id), method: "delete" %></li>
     <% end %>
