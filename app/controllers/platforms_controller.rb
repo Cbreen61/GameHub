@@ -8,7 +8,7 @@ class PlatformsController < ApplicationController
         @platforms = @current_user.platforms.all
     end
     def show
-        if @platform = Platform.find_by_id(params[:id])
+        if find_platform
             render :show
         else
            platform_not_found
@@ -54,7 +54,7 @@ class PlatformsController < ApplicationController
     end
 
     def destroy
-        @platform = Platform.find(params[:id])
+        find_platform
 
         if platform_user
             @platform.destroy

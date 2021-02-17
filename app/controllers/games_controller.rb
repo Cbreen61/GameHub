@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     end
 
     def show
-        if @game = Game.find_by_id(params[:id])
+        if find_game
         render :show
         else
             game_not_found
