@@ -9,7 +9,7 @@
     <li><%= link_to "Delete Platform",platform_path(@platform), method: "delete" %></li>
 <% end %>
 <li><%= link_to"Add games you own", new_platform_owned_game_path(@platform)%></li>
-<h4> Games you own for this plaform</h4>
+<h3> Games you own for this plaform</h3>
 <% @platform.games.each do  |game| %>
      <% @platform.owned_games.each do |og| %>
         <% if og.game_id == game.id %>
