@@ -1,7 +1,7 @@
 <%= form_for owned_game, url:url do |f| %>
 
     <%= f.collection_select :game_id, @games, :id, :title %>
-    <%= f.hidden_field :platform_id, :vaule => platform.id %>
+    <%= f.hidden_field :platform_id, :vaule => @platform.id %>
     <%= f.submit " Add to your #{@platform.name} games"%>
     
     <p> Can't find your game? add it to our list of games <li><%= link_to("Add a game", new_game_path)%></li></p>

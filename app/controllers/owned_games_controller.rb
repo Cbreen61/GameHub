@@ -2,14 +2,6 @@ class OwnedGamesController < ApplicationController
     before_action :collection_array, only: [:new, :edit, :destroy]
     before_action :find_owned, only: [:destroy]
 
-    def show
-        @platform = Platform.find(params[:platform_id])
-        @owned = OwnedGame.find(params[:id])
-        @game = Game.find(params[:game_id])
-
-    
-    end
-
     def new
         @platform = Platform.find(params[:platform_id])
         @owned = @platform.owned_games.new
@@ -33,7 +25,7 @@ class OwnedGamesController < ApplicationController
    
     private 
    def owned_params
-    params.require(:owned_game).permit(:game_id, :platform_id)
+    params.require(:owned_game).permit(:platform_id, :game_id)
    end
 
    def collection_array
@@ -45,4 +37,5 @@ class OwnedGamesController < ApplicationController
     @platform = Platform.find(params[:platform_id])
     @owned = OwnedGame.find(params[:id])
    end
+ 
 end
