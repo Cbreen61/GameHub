@@ -9,7 +9,7 @@ class GamesController < ApplicationController
         if @game = Game.find_by_id(params[:id])
         render :show
         else
-           game_not_found
+            game_not_found
         end
 
     end
@@ -58,6 +58,11 @@ class GamesController < ApplicationController
 
         def game_params
             params.require(:game).permit(:title, :release_date, :audience_rating, :image)
+        end
+
+        def game_not_found
+            flash[:notice] = "Game does not exist"
+            redirect_to games_path
         end
 
 end

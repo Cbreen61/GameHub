@@ -11,7 +11,7 @@ class PlatformsController < ApplicationController
         if @platform = Platform.find_by_id(params[:id])
             render :show
         else
-           redirect_to platforms_path
+           platform_not_found
         end
     end
 
@@ -77,10 +77,13 @@ class PlatformsController < ApplicationController
         params.require(:platform).permit(:name, :manufacturer, :user_id, :image)
     end
     def platform_user
-        if @platform.user == current_user
-            
-        end
-        
+        if @platform.user == current_user   
+        end  
+    end
+
+    def platform_not_found
+        flash[:notice] = "Platform does not exist"
+        redirect_to platforms_path
     end
 
 end
