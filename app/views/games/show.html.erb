@@ -6,15 +6,13 @@
 <li>Audience Rating:<%= @game.audience_rating %></li>    
 <li>Release date:<%= @game.release_date %></li>
 <%if logged_in? %>
-    <%= link_to "Edit", edit_game_path(@game) %>
-    <%= link_to "Delete",game_path(@game), method: "delete" %>
+    <li><%= link_to "Edit", edit_game_path(@game) %></li>
 <br>
-<br>
-    <%= link_to "Review Game",new_game_review_path(@game)%>
+<h2> Game Reviews </h2>
+    <li><%= link_to "Review this game",new_game_review_path(@game)%></li>
     <%@game.reviews.each do |r| %>
-    <h2> Here are your reviews </h2>
-        <h4><%=r.comment%> - <%=r.user.username%> </h4>
-        <%= link_to "Edit Review", edit_game_review_path(@game.id,r.id)%>
-        <%= link_to "Delete Review",game_review_path(@game,r.id), method: "delete" %>
+        <p><%=r.comment%> - <%=r.user.username%> </p>
+        <li><%= link_to "Edit Review", edit_game_review_path(@game.id,r.id)%></li>
+        <li><%= link_to "Delete Review",game_review_path(@game,r.id), method: "delete" %></li>
     <% end %>
 <% end %>

@@ -54,6 +54,7 @@ class PlatformsController < ApplicationController
     end
 
     def destroy
+        @platform = Platform.find(params[:id])
 
         if platform_user
             @platform.destroy
@@ -77,8 +78,7 @@ class PlatformsController < ApplicationController
         params.require(:platform).permit(:name, :manufacturer, :user_id, :image)
     end
     def platform_user
-        if @platform.user == current_user   
-        end  
+        @platform.user == current_user   
     end
 
     def platform_not_found
